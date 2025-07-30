@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Name</title>
+</head>
+<body>
+  <h3><b>Username</b></h3>
+  <input type="text" id="username">
+  <br>
+  <button id="submitBtn">Submit</button>
+
+  <p id="error"></p>
+
+  <script>
+    const input = document.getElementById("username");
+    const button = document.getElementById("submitBtn");
+    const error = document.getElementById("error");
+
+    button.addEventListener("click", function () {
+      const name = input.value.trim();
+      error.textContent = ""; // clear old errors
+
+      // Rule i: Cannot be empty
+      if (name === "") {
+        error.textContent = "Name cannot be empty.";
+        return;
+      }
+
+      const words = name.split(" ").filter(word => word !== "");
+      if (words.length < 2) {
+        error.textContent = "Name must contain at least two words.";
+        return;
+      }
+
+    for (let i = 0; i < name.length; i++) {
+  let ch = name[i];
+
+  if (
+    !(ch >= 'a' && ch <= 'z') &&
+    !(ch >= 'A' && ch <= 'Z') &&
+    ch !== '.' &&
+    ch !== '-' &&
+    ch !== ' '
+  ) {
+    error.textContent = "Name can only contain letters, dots, dashes, and spaces.";
+    return;
+  }
+}
+
+    const firstChar = name[0];
+
+if (
+  firstChar !== 'a' && firstChar !== 'b' && firstChar !== 'c' && firstChar !== 'd' && firstChar !== 'e' &&
+  firstChar !== 'f' && firstChar !== 'g' && firstChar !== 'h' && firstChar !== 'i' && firstChar !== 'j' &&
+  firstChar !== 'k' && firstChar !== 'l' && firstChar !== 'm' && firstChar !== 'n' && firstChar !== 'o' &&
+  firstChar !== 'p' && firstChar !== 'q' && firstChar !== 'r' && firstChar !== 's' && firstChar !== 't' &&
+  firstChar !== 'u' && firstChar !== 'v' && firstChar !== 'w' && firstChar !== 'x' && firstChar !== 'y' &&
+  firstChar !== 'z' &&
+
+  firstChar !== 'A' && firstChar !== 'B' && firstChar !== 'C' && firstChar !== 'D' && firstChar !== 'E' &&
+  firstChar !== 'F' && firstChar !== 'G' && firstChar !== 'H' && firstChar !== 'I' && firstChar !== 'J' &&
+  firstChar !== 'K' && firstChar !== 'L' && firstChar !== 'M' && firstChar !== 'N' && firstChar !== 'O' &&
+  firstChar !== 'P' && firstChar !== 'Q' && firstChar !== 'R' && firstChar !== 'S' && firstChar !== 'T' &&
+  firstChar !== 'U' && firstChar !== 'V' && firstChar !== 'W' && firstChar !== 'X' && firstChar !== 'Y' &&
+  firstChar !== 'Z'
+) {
+  error.textContent = "Name must start with a letter.";
+  return;
+}
+  
+      window.location.href = "http://127.0.0.1:5500/Email.html";
+    });
+  </script>
+</body>
+</html>

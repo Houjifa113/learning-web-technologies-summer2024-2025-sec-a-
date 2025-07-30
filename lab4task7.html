@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Profile picture</title>
+</head>
+<body>
+
+  <fieldset style="width: 30%;">
+    <legend>Profile Picture</legend>
+
+    User ID: <input type="text" id="userId"><br><br>
+
+    Picture: <input type="file" id="picture"><br><br>
+
+    <input type="submit" value="Submit" id="submitBtn">
+    <p id="error" style="color: red;"></p>
+  </fieldset>
+
+  <script>
+    const userId = document.getElementById("userId");
+    const picture = document.getElementById("picture");
+    const submitBtn = document.getElementById("submitBtn");
+    const error = document.getElementById("error");
+
+    submitBtn.addEventListener("click", function (event) {
+      event.preventDefault(); 
+
+      error.textContent = ""; 
+
+      
+      if (userId.value.trim() === "") {
+        error.textContent = "User ID cannot be empty.";
+        return;
+      }
+
+  
+      if (isNaN(userId.value) || Number(userId.value) <= 0) {
+        error.textContent = "User ID must be a positive number.";
+        return;
+      }
+
+    
+      if (picture.files.length === 0) {
+        error.textContent = "Please select a profile picture.";
+        return;
+      }
+
+      
+      alert("Form submitted successfully!");
+    
+    });
+  </script>
+
+</body>
+</html>
